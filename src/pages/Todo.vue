@@ -46,7 +46,8 @@
 </template>
 
 <script>
-
+const Person_context = require("./../models/Person_context").default;
+const Person_model = require("./../models/Person_model").default;
 
 export default {
   data() {
@@ -58,6 +59,19 @@ export default {
         // { title: "Poo bananas", done: false }
       ]
     };
+  },
+  async mounted() {
+    let personContext = await Person_context;
+    let personModel = await Person_model;
+    console.log("<--- debug class --->");
+    // console.log(personContext);
+    // console.log(personModel);
+    await personContext.get_all_person();
+    console.log(await personContext.persons);
+    await personContext.persons.map(person => {
+      console.log(person);
+    });
+    console.log("<--- debug class --->");
   },
   methods: {
     addTask() {
@@ -91,7 +105,7 @@ export default {
     color: #bbbbbb;
   }
 }
-.no-task{
+.no-task {
   opacity: 0.5;
 }
 </style>
