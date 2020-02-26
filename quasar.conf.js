@@ -7,7 +7,6 @@ module.exports = function (ctx) {
     // --> boot files are part of "main.js"
     // https://quasar.dev/quasar-cli/cli-documentation/boot-files
     boot: [
-      'axios'
     ],
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css
@@ -55,27 +54,17 @@ module.exports = function (ctx) {
 
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-build
     build: {
+      scopeHoisting: true,
       vueRouterMode: 'hash', // available values: 'hash', 'history'
-
-      // showProgress: false,
-      // gzip: true,
-      // analyze: true,
-
+      showProgress: true,
+      gzip: false,
+      analyze: false,
       // Options below are automatically set depending on the env, set them if you want to override
       // preloadChunks: false,
       // extractCSS: false,
 
       // https://quasar.dev/quasar-cli/cli-documentation/handling-webpack
       extendWebpack (cfg) {
-        cfg.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /node_modules/,
-          options: {
-            formatter: require('eslint').CLIEngine.getFormatter('stylish')
-          }
-        })
       }
     },
 
@@ -109,29 +98,29 @@ module.exports = function (ctx) {
         theme_color: '#027be3',
         icons: [
           {
-            src: 'statics/icons/icon-128x128.png',
-            sizes: '128x128',
-            type: 'image/png'
+            'src': 'statics/icons/icon-128x128.png',
+            'sizes': '128x128',
+            'type': 'image/png'
           },
           {
-            src: 'statics/icons/icon-192x192.png',
-            sizes: '192x192',
-            type: 'image/png'
+            'src': 'statics/icons/icon-192x192.png',
+            'sizes': '192x192',
+            'type': 'image/png'
           },
           {
-            src: 'statics/icons/icon-256x256.png',
-            sizes: '256x256',
-            type: 'image/png'
+            'src': 'statics/icons/icon-256x256.png',
+            'sizes': '256x256',
+            'type': 'image/png'
           },
           {
-            src: 'statics/icons/icon-384x384.png',
-            sizes: '384x384',
-            type: 'image/png'
+            'src': 'statics/icons/icon-384x384.png',
+            'sizes': '384x384',
+            'type': 'image/png'
           },
           {
-            src: 'statics/icons/icon-512x512.png',
-            sizes: '512x512',
-            type: 'image/png'
+            'src': 'statics/icons/icon-512x512.png',
+            'sizes': '512x512',
+            'type': 'image/png'
           }
         ]
       }
@@ -140,8 +129,9 @@ module.exports = function (ctx) {
     // Full list of options: https://quasar.dev/quasar-cli/developing-cordova-apps/configuring-cordova
     cordova: {
       // noIosLegacyBuildFlag: true, // uncomment only if you know what you are doing
-      id: 'org.cordova.quasar.app'
+      id: 'com.jack.quasartodo'
     },
+
 
     // Full list of options: https://quasar.dev/quasar-cli/developing-capacitor-apps/configuring-capacitor
     capacitor: {
@@ -153,6 +143,7 @@ module.exports = function (ctx) {
       bundler: 'packager', // 'packager' or 'builder'
 
       packager: {
+        platform:'win32'
         // https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#options
 
         // OS X / Mac App Store
@@ -168,7 +159,7 @@ module.exports = function (ctx) {
       builder: {
         // https://www.electron.build/configuration/configuration
 
-        appId: 'frontend-ledger-account'
+        appId: 'quasar-todo'
       },
 
       // More info: https://quasar.dev/quasar-cli/developing-electron-apps/node-integration
