@@ -25,7 +25,7 @@ import 'quasar/dist/quasar.sass'
 
 
 
-import 'src/css/app.scss'
+import 'src/css/app.sass'
 
 
 import Vue from 'vue'
@@ -33,6 +33,8 @@ import createApp from './app.js'
 
 
 
+
+import qboot_Bootaxios from 'boot/axios'
 
 
 
@@ -56,6 +58,46 @@ async function start () {
 
   
 
+  
+  let routeUnchanged = true
+  const redirect = url => {
+    routeUnchanged = false
+    window.location.href = url
+  }
+
+  const urlPath = window.location.href.replace(window.location.origin, '')
+  const bootFiles = [qboot_Bootaxios]
+
+  for (let i = 0; routeUnchanged === true && i < bootFiles.length; i++) {
+    if (typeof bootFiles[i] !== 'function') {
+      continue
+    }
+
+    try {
+      await bootFiles[i]({
+        app,
+        router,
+        
+        Vue,
+        ssrContext: null,
+        redirect,
+        urlPath
+      })
+    }
+    catch (err) {
+      if (err && err.url) {
+        window.location.href = err.url
+        return
+      }
+
+      console.error('[Quasar] boot error:', err)
+      return
+    }
+  }
+
+  if (routeUnchanged === false) {
+    return
+  }
   
 
   

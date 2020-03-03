@@ -1,10 +1,10 @@
-# Quasar App (quasar-todo)
+# Ledger Account (frontend-ledger-account)
 
-A Quasar Framework app
+Crete by Supak Jack SE#07
 
 ## Install the dependencies
 ```bash
-npm install
+yarn
 ```
 
 ### Start the app in development mode (hot-code reloading, error reporting, etc.)
@@ -12,6 +12,10 @@ npm install
 quasar dev
 ```
 
+### Lint the files
+```bash
+yarn run lint
+```
 
 ### Build the app for production
 ```bash
