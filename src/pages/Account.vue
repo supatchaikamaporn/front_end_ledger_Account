@@ -112,7 +112,7 @@
 <br>
 <br>
         <div class="q-pa-md q-gutter-sm " style="max-width: 1500px">
-            <q-btn label="เพิ่มบัญชี" color="primary" style="width: 100%" @click="showDialog" />
+            <q-btn label="เพิ่มบัญชี" color="primary" style="width: 100%" @click="prompt" />
       </div>
 
 
@@ -124,8 +124,10 @@
 <script>
 
 export default {
+  name:"wxdwxwd",
   data() {
     return {
+      name:"swxswx",
       expanded: false,
       newTask: "",
       tasks: [
@@ -171,15 +173,20 @@ export default {
     }
   },
    methods: {
-    showDialog () {
+     prompt () {
       this.$q.dialog({
-        title: 'Alert<em>!</em>',
-        message: 'ddddd',
-        html: true
-      }).onOk(() => {
-        // console.log('OK')
+        title: 'Prompt',
+        message: 'What is youdddddr name?',
+        prompt: {
+          model: '',
+          type: 'text' // optional
+        },
+        cancel: true,
+        persistent: true
+      }).onOk(data => {
+        // console.log('>>>> OK, received', data)
       }).onCancel(() => {
-        // console.log('Cancel')
+        // console.log('>>>> Cancel')
       }).onDismiss(() => {
         // console.log('I am triggered on both OK and Cancel')
       })
