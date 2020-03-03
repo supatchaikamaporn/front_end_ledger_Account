@@ -1,7 +1,7 @@
 <template>
   <q-page class="bg-grey-3 column">
     <q-list class="bg-white" separator bordered>
-      <div class="row q-pa-sm bg-primary">
+      <!-- <div class="row q-pa-sm bg-primary">
         <q-input
           @keyup.enter="addTask"
           class="col"
@@ -16,7 +16,7 @@
             <q-btn @click="addTask" round dense flat icon="add" />
           </template>
         </q-input>
-      </div>
+      </div> -->
 
       <q-item
         clickable
@@ -93,10 +93,82 @@
         <div  class="q-pa-md" style="max-width: 1500px">
           <q-btn color="primary" label="บันทึก" style="width: 100%" />
         </div>
+
+
+        
       </q-card>
     </q-expansion-item>
   </div>
 
+
+  <!-- end tab 1  -->
+
+ <!-- start tab 2  -->
+  <div class="q-pa-md" style="width: 100%">
+    <q-toggle v-model="expanded" label="Expanded" class="q-mb-md" />
+    
+    <q-expansion-item
+      v-model="expanded"
+      icon="monetization_on"
+      label="เงินสด"
+      caption="1500.00 บาท"
+    >
+      <q-card>
+        <q-card-section>
+
+           <q-item-section >
+            รายละเอียดบัญชี
+          </q-item-section>
+<br>
+  <q-input
+        filled
+        v-model="name"
+        label="Your name *"
+      />
+<br>
+  <q-input
+        filled
+        type="number"
+        v-model="money"
+        label="Your Money"
+      />
+
+<br>
+<br>
+
+      <q-item-section >
+            ประเภทบัญชี เงินสด
+          </q-item-section>
+<br>
+  <q-input
+        filled
+        type="number"
+        v-model="Total_money"
+        label="Total Money"
+      />
+
+<br>
+
+
+
+        </q-card-section>
+        <div  class="q-pa-md" style="max-width: 1500px">
+          <q-btn color="primary" label="บันทึก" style="width: 50%" />
+          <q-btn color="primary" label="บันทึก" style="width: 50%" />
+        </div>
+
+
+        
+      </q-card>
+    </q-expansion-item>
+  </div>
+
+
+<br>
+<br>
+        <div  class="q-pa-md" style="max-width: 1500px">
+          <q-btn color="primary" label="เพิ่มบัญชี" style="width: 100%" />
+        </div>
 
 
 
