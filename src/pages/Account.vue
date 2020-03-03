@@ -90,9 +90,14 @@
 
 
         </q-card-section>
-        <div  class="q-pa-md" style="max-width: 1500px">
+        <div  class="q-pa-md" style="max-width: 1500px">    
           <q-btn color="primary" label="บันทึก" style="width: 100%" />
         </div>
+
+        <div  class="q-pa-md" style="max-width: 1500px">    
+          <q-btn color="red" label="ยกเลิก" style="width: 100%" />
+        </div>
+
 
 
         
@@ -103,73 +108,12 @@
 
   <!-- end tab 1  -->
 
- <!-- start tab 2  -->
-  <div class="q-pa-md" style="width: 100%">
-    <q-toggle v-model="expanded" label="Expanded" class="q-mb-md" />
-    
-    <q-expansion-item
-      v-model="expanded"
-      icon="monetization_on"
-      label="เงินสด"
-      caption="1500.00 บาท"
-    >
-      <q-card>
-        <q-card-section>
-
-           <q-item-section >
-            รายละเอียดบัญชี
-          </q-item-section>
-<br>
-  <q-input
-        filled
-        v-model="name"
-        label="Your name *"
-      />
-<br>
-  <q-input
-        filled
-        type="number"
-        v-model="money"
-        label="Your Money"
-      />
 
 <br>
 <br>
-
-      <q-item-section >
-            ประเภทบัญชี เงินสด
-          </q-item-section>
-<br>
-  <q-input
-        filled
-        type="number"
-        v-model="Total_money"
-        label="Total Money"
-      />
-
-<br>
-
-
-
-        </q-card-section>
-        <div  class="q-pa-md" style="max-width: 1500px">
-          <q-btn color="primary" label="บันทึก" style="width: 50%" />
-          <q-btn color="primary" label="บันทึก" style="width: 50%" />
-        </div>
-
-
-        
-      </q-card>
-    </q-expansion-item>
-  </div>
-
-
-<br>
-<br>
-        <div  class="q-pa-md" style="max-width: 1500px">
-          <q-btn color="primary" label="เพิ่มบัญชี" style="width: 100%" />
-        </div>
-
+        <div class="q-pa-md q-gutter-sm " style="max-width: 1500px">
+            <q-btn label="เพิ่มบัญชี" color="primary" style="width: 100%" @click="showDialog" />
+      </div>
 
 
 
@@ -225,8 +169,26 @@ export default {
           this.$q.notify("Task delete");
         });
     }
+  },
+   methods: {
+    showDialog () {
+      this.$q.dialog({
+        title: 'Alert<em>!</em>',
+        message: 'ddddd',
+        html: true
+      }).onOk(() => {
+        // console.log('OK')
+      }).onCancel(() => {
+        // console.log('Cancel')
+      }).onDismiss(() => {
+        // console.log('I am triggered on both OK and Cancel')
+      })
+    }
   }
+
+  
 };
+
 
 
 </script>
