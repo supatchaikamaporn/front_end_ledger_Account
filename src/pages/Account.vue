@@ -41,7 +41,7 @@
      
     
 
-<!-- 
+
 <div class="q-pa-md" style="width: 100%">
     <q-toggle v-model="expanded" label="Expanded" class="q-mb-md" />
     
@@ -91,12 +91,12 @@
 
         </q-card-section>
         <div  class="q-pa-md" style="max-width: 1500px">
-          <q-btn color="primary" label="Primary" style="width: 100%" />
+          <q-btn color="primary" label="บันทึก" style="width: 100%" />
         </div>
       </q-card>
     </q-expansion-item>
   </div>
- -->
+
 
 
 
@@ -106,8 +106,6 @@
 
 
 <script>
-const Person_context = require("./../models/Person_context").default;
-const Person_model = require("./../models/Person_model").default;
 
 export default {
   data() {
@@ -147,7 +145,6 @@ export default {
         .dialog({
           title: "Confirm",
           message: "Really delete",
-          kuy
           cancel: true,
           persisten: true
         })
