@@ -147,6 +147,7 @@ export default {
         .dialog({
           title: "Confirm",
           message: "Really delete",
+          kuy
           cancel: true,
           persisten: true
         })
