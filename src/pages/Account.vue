@@ -175,8 +175,8 @@ export default {
    methods: {
      prompt () {
       this.$q.dialog({
-        title: 'Prompt',
-        message: 'What is youdddddr name?',
+        title: 'รายละเอียดบัญชี',
+        message: 'What is you0r name?',
         prompt: {
           model: '',
           type: 'text' // optional
