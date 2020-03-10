@@ -61,14 +61,14 @@
   <q-input
         filled
         v-model="name"
-        label="Your name *"
+        label="ชื่อ - นามสกุล *"
       />
 <br>
   <q-input
         filled
-        type="number"
+        type="text"
         v-model="money"
-        label="Your Money"
+        label="สกุลเงิน"
       />
 
 <br>
@@ -82,7 +82,7 @@
         filled
         type="number"
         v-model="Total_money"
-        label="Total Money"
+        label="จำนวนเงินที่เปิดบัญชี"
       />
 
 <br>
@@ -127,7 +127,9 @@ export default {
   name:"wxdwxwd",
   data() {
     return {
-      name:"swxswx",
+      name:"Supatchai gamaporn",
+      money:"bath",
+      Total_money:"500",
       expanded: false,
       newTask: "",
       tasks: [
