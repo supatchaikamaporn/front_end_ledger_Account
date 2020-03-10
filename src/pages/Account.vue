@@ -151,7 +151,7 @@
         filled
         type="number"
         v-model="Total_money_regis"
-        label="จำนวนเงินที่เปิดบัญชี"
+        label="จำนวนเงิน (บาท)"
       />
  </q-card-section>
 
