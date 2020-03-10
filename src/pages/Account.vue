@@ -61,7 +61,7 @@
   <q-input
         filled
         v-model="name"
-        label="ชื่อ - นามสกุล *"
+        label="ชื่อ - นามสกุล"
       />
 <br>
   <q-input
@@ -126,9 +126,8 @@
           <div class="text-h6">เพิ่มบัญชี</div>
         </q-card-section>
 
-     
-          
-          
+  
+                
 
          
       <q-card>
@@ -142,7 +141,7 @@
         filled
         type="text"
         v-model="name_regis"
-        label="ชื่อ - นามสกุล *"
+        label="ชื่อ - นามสกุล"
       />
 <br>
   <q-input
@@ -165,12 +164,7 @@
         v-model="Total_money_regis"
         label="จำนวนเงินที่เปิดบัญชี"
       />
-
-<br>
-
-
-
-        </q-card-section>
+ </q-card-section>
 
 
 
@@ -179,8 +173,12 @@
       </q-card>
 
 
-        <q-card-actions align="right" class="bg-white text-teal">
-          <q-btn flat label="OK" v-close-popup />
+        <q-card-actions align="right" class="bg-white text-teal">    
+          <q-btn color="primary" label="OK" style="width: 100%" v-close-popup  />
+          <br>
+          <br>
+          <br>
+          <q-btn color="red" label="Cancel" style="width: 100%" />
         </q-card-actions>
       </q-card>
     </q-dialog>
