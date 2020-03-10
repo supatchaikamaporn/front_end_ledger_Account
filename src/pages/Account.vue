@@ -110,9 +110,80 @@
 
 
 <br>
+
+      
+
+
 <br>
-        <div class="q-pa-md q-gutter-sm " style="max-width: 1500px">
-            <q-btn label="เพิ่มบัญชี" color="primary" style="width: 100%" @click="prompt" />
+       <div class="q-pa-md q-gutter-sm " style="max-width: 1500px">
+
+            <q-btn label="เพิ่มบัญชี" color="primary" style="width: 100%" @click="medium = true" />
+      
+       <q-dialog
+      v-model="medium">
+      <q-card style="width: 700px; max-width: 80vw;">
+        <q-card-section>
+          <div class="text-h6">เพิ่มบัญชี</div>
+        </q-card-section>
+
+     
+          
+          
+
+         
+      <q-card>
+        <q-card-section>
+
+           <q-item-section >
+            รายละเอียดบัญชี
+          </q-item-section>
+<br>
+  <q-input
+        filled
+        type="text"
+        v-model="name_regis"
+        label="ชื่อ - นามสกุล *"
+      />
+<br>
+  <q-input
+        filled
+        type="text"
+        v-model="money_regis"
+        label="สกุลเงิน"
+      />
+
+<br>
+<br>
+
+      <q-item-section >
+            ประเภทบัญชี เงินสด
+          </q-item-section>
+<br>
+  <q-input
+        filled
+        type="number"
+        v-model="Total_money_regis"
+        label="จำนวนเงินที่เปิดบัญชี"
+      />
+
+<br>
+
+
+
+        </q-card-section>
+
+
+
+
+        
+      </q-card>
+
+
+        <q-card-actions align="right" class="bg-white text-teal">
+          <q-btn flat label="OK" v-close-popup />
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
       </div>
 
 
@@ -129,6 +200,10 @@ export default {
     return {
       name:"Supatchai gamaporn",
       money:"bath",
+      money_regis:" ",
+      name_regis:" ",
+      Total_money_regis:" ",
+       medium: false,
       Total_money:"500",
       expanded: false,
       newTask: "",
@@ -174,26 +249,6 @@ export default {
         });
     }
   },
-   methods: {
-     prompt () {
-      this.$q.dialog({
-        title: 'รายละเอียดบัญชี',
-        message: 'What is you0r name?',
-        prompt: {
-          model: '',
-          type: 'text' // optional
-        },
-        cancel: true,
-        persistent: true
-      }).onOk(data => {
-        // console.log('>>>> OK, received', data)
-      }).onCancel(() => {
-        // console.log('>>>> Cancel')
-      }).onDismiss(() => {
-        // console.log('I am triggered on both OK and Cancel')
-      })
-    }
-  }
 
   
 };
