@@ -97,9 +97,6 @@
         <div  class="q-pa-md" style="max-width: 1500px">    
           <q-btn color="red" label="ยกเลิก" style="width: 100%" />
         </div>
-
-
-
         
       </q-card>
     </q-expansion-item>
@@ -107,14 +104,6 @@
 
 
   <!-- end tab 1  -->
-
-
-<br>
-
-      
-
-
-<br>
        <div class="q-pa-md q-gutter-sm " style="max-width: 1500px">
 
             <q-btn label="เพิ่มบัญชี" color="primary" style="width: 100%" @click="medium = true" />
